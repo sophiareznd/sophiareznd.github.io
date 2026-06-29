@@ -1,0 +1,192 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-size: 13px;
+  background-color: #f2f2f2;
+  color: #333;
+}
+
+/* NAVIGATION */
+nav {
+  display: flex;
+  align-items: center;
+  padding: 0 200px;
+  background-color: transparent;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  height: 160px;
+  transition: transform 0.3s ease;
+}
+
+nav.escondida {
+  transform: translateY(-100%);
+}
+
+nav .logo img {
+  width: 40px;
+}
+
+nav ul {
+  display: flex;
+  list-style: none;
+  justify-content: space-between;
+  flex: 1;
+  padding-left: 200px;
+}
+
+nav ul li a {
+  text-decoration: none;
+  color: #FF568D;
+  font-size: 18px;
+}
+
+nav ul li a.ativa {
+  text-decoration: underline;
+}
+
+body.home-ativa nav ul li a {
+  color: white;
+}
+
+/* PÁGINAS */
+.pagina {
+  display: none;
+  min-height: 100vh;
+  padding: 80px 90px 0;
+}
+
+.pagina.ativa {
+  display: block;
+}
+
+/* HOMEPAGE */
+#home {
+  background-color: #FF568D;
+  position: relative;
+  overflow: hidden;
+  min-height: 100vh;
+}
+
+.home-texto {
+  position: absolute;
+  bottom: 40%;
+  left: 200px;
+  width: 45%;
+  color: white;
+  font-size: 36px;
+  line-height: 1.3;
+}
+
+.home-texto em {
+  font-style: italic;
+}
+
+#teclas-container {
+  position: absolute;
+  bottom: 5%;
+  right: 5%;
+  width: 45%;
+  height: 60%;
+}
+
+.tecla {
+  position: absolute;
+  width: 70px;
+  cursor: grab;
+  user-select: none;
+  -webkit-user-drag: none;
+}
+
+/* SOBRE MIM */
+#sobre.ativa {
+  display: flex;
+}
+
+.sobre-container {
+  display: grid;
+  grid-template-columns: 280px 180px 180px;
+  margin-top: 193px;
+  margin-left: 41%;
+  align-self: flex-start;
+}
+
+.sobre-skills {
+  padding-left: 23px;
+}
+
+.sobre-contato {
+  padding-left: 20px;
+}
+
+.sobre-skills .sobre-titulo,
+.sobre-contato .sobre-titulo {
+  margin-bottom: 19px;
+}
+
+.sobre-titulo {
+  margin-bottom: 20px;
+}
+
+.sobre-bio p + p {
+  margin-top: 16px;
+}
+
+.sobre-skills p,
+.sobre-contato p {
+  margin-bottom: 0;
+  line-height: 1.3;
+}
+
+.sobre-contato a {
+  color: #333;
+  text-decoration: none;
+}
+
+.sobre-contato a:hover {
+  color: #FF568D;
+}
+
+/* PROJETOS */
+#projetos {
+  padding-top: 160px;
+  padding-bottom: 60px;
+}
+
+.projetos-grid {
+  display: grid;
+  grid-template-columns: 1.6fr 1.6fr 1fr;
+  grid-template-rows: 450px 474px 300px 300px;
+  gap: 15px;
+}
+
+.capa-projeto {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  cursor: pointer;
+}
+
+.capa-projeto:hover {
+  opacity: 0.85;
+  transition: opacity 0.2s ease;
+}
+
+/* Posicionamento de cada card */
+.card-cosmo       { grid-column: 1;     grid-row: 1; }
+.card-revista     { grid-column: 2 / 4; grid-row: 1; }
+.card-kitkat      { grid-column: 1;     grid-row: 2; }
+.card-sinapse     { grid-column: 2;     grid-row: 2; }
+.card-anjos       { grid-column: 3;     grid-row: 2; }
+.card-ama         { grid-column: 1;     grid-row: 3; }
+.card-emilie      { grid-column: 2;     grid-row: 3 / 5; }
+.card-jagerbomb   { grid-column: 3;     grid-row: 3; }
+.card-seposicione { grid-column: 3;     grid-row: 4; }

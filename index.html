@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sophia Rezende</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/matter-js/0.19.0/matter.min.js"></script>
+</head>
+<body>
+
+  <!-- NAVIGATION -->
+  <nav>
+    <div class="logo">
+      <img src="imagens/teclas/teclas-s.png" alt="S" onclick="mostrarPagina('home')" style="cursor:pointer">
+    </div>
+    <ul>
+      <li><a href="#" onclick="mostrarPagina('sobre')">Sobre mim</a></li>
+      <li><a href="#" onclick="mostrarPagina('projetos')">Projetos</a></li>
+      <li><a href="mailto:sophiarp13@gmail.com">Contato</a></li>
+      <li><a href="#" onclick="alternarIdioma()">PT-BR</a></li>
+    </ul>
+  </nav>
+
+  <!-- HOMEPAGE -->
+  <section id="home" class="pagina ativa">
+    <div class="home-texto">
+      <p><em>Sophia Rezende</em> é uma estudante de Design Visual com foco em Branding e editorial, em São Paulo, Brasil.</p>
+    </div>
+    <div id="teclas-container">
+      <img src="imagens/teclas/teclas-s.png" class="tecla" id="tecla-s">
+      <img src="imagens/teclas/teclas-o.png" class="tecla" id="tecla-o">
+      <img src="imagens/teclas/teclas-p.png" class="tecla" id="tecla-p">
+      <img src="imagens/teclas/teclas-h.png" class="tecla" id="tecla-h">
+      <img src="imagens/teclas/teclas-i.png" class="tecla" id="tecla-i">
+      <img src="imagens/teclas/teclas-a.png" class="tecla" id="tecla-a">
+    </div>
+  </section>
+
+  <!-- SOBRE MIM -->
+  <section id="sobre" class="pagina">
+    <div class="sobre-container">
+      <div class="sobre-bio">
+        <p class="sobre-titulo">Sophia Rezende — Designer Visual</p>
+        <p>Estudante de graduação em Design Visual com foco em Marketing na ESPM São Paulo, atualmente no 5º semestre. Minha prática abrange branding, design editorial, design tipográfico, motion design, web design, design ambiental e mídias sociais.</p>
+        <p>Acredito em trabalhos em que cada detalhe tem um propósito. Para mim, um bom design começa com um problema bem definido e se desenvolve até uma solução em que nada é arbitrário. O conceito, a forma e a execução estão sempre em diálogo entre si.</p>
+      </div>
+      <div class="sobre-skills">
+        <p class="sobre-titulo">Skills</p>
+        <p>Branding & Visual Identity</p>
+        <p>Editorial Design</p>
+        <p>Typography & Type Design</p>
+        <p>Motion Design</p>
+        <p>Web Design</p>
+        <p>Social Media Design</p>
+        <p>UX/UI Research</p>
+      </div>
+      <div class="sobre-contato">
+        <p class="sobre-titulo">Contact</p>
+        <p><a href="mailto:sophiarp13@gmail.com">sophiarp13@gmail.com</a></p>
+        <p><a href="https://behance.net/sophiarezende" target="_blank">behance.net/sophiarezende</a></p>
+        <p><a href="https://linkedin.com/in/sophia-rezende/" target="_blank">linkedin.com/in/sophia-rezende/</a></p>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROJETOS -->
+  <section id="projetos" class="pagina">
+    <div class="projetos-grid">
+      <img src="imagens/capas/capa-cosmo.png"        class="capa-projeto card-cosmo"      onclick="abrirProjeto('cosmo')">
+      <img src="imagens/capas/capa-maismais.png"     class="capa-projeto card-revista"    onclick="abrirProjeto('maismais')">
+      <img src="imagens/capas/capa-kitkat.png"       class="capa-projeto card-kitkat"     onclick="abrirProjeto('kitkat')">
+      <img src="imagens/capas/capa-sinapse.png"      class="capa-projeto card-sinapse"    onclick="abrirProjeto('sinapse')">
+      <img src="imagens/capas/capa-anjos-e-fadas.png" class="capa-projeto card-anjos"    onclick="abrirProjeto('anjos')">
+      <img src="imagens/capas/capa-ama.png"          class="capa-projeto card-ama"        onclick="abrirProjeto('ama')">
+      <img src="imagens/capas/capa-emilie.png"       class="capa-projeto card-emilie"     onclick="abrirProjeto('emilie')">
+      <img src="imagens/capas/capa-jagerbomb.png"    class="capa-projeto card-jagerbomb"  onclick="abrirProjeto('jagerbomb')">
+      <img src="imagens/capas/capa-seposicione.png"  class="capa-projeto card-seposicione" onclick="abrirProjeto('seposicione')">
+    </div>
+  </section>
+
+  <!-- PROJETO ABERTO -->
+  <section id="projeto-aberto" class="pagina">
+  </section>
+
+  <script src="script.js"></script>
+</body>
+</html>
