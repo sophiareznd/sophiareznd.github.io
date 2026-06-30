@@ -388,7 +388,7 @@ function chuvaDeTecias() {
   const letras = ['s', 'o', 'p', 'h', 'i', 'a'];
   corposSobre = [];
 
-  for (let i = 0; i < 60; i++) {
+  for (let i = 0; i < 105; i++) {
     const letra = letras[i % letras.length];
     const x = Math.random() * (W - 120) + 60;
     const y = -80 - i * 70;
