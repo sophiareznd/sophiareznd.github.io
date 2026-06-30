@@ -435,7 +435,7 @@ function chuvaDeTecias() {
     );
     if (todasParadas) {
       clearInterval(checkSettled);
-      chuvaTimer = setTimeout(() => abrirChao(), 4000);
+      chuvaTimer = setTimeout(() => abrirChao(), 3000);
     }
   }, 500);
 }
