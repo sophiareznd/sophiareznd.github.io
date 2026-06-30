@@ -447,7 +447,7 @@ function chuvaDeTecias() {
       clearTimeout(chuvaTimer);
       abrirChao();
     }
-  }, 8000);
+  }, 5000);
 }
 
 function abrirChao() {
