@@ -295,10 +295,11 @@ const projetos = [
   }
 ];
 
+const projetosVisiveis = ['maismais', 'cosmo', 'kitkat', 'sinapse', 'emilie'];
 let projetoAtualIndex = 0;
 
 function abrirProjeto(id) {
-  const index = projetos.findIndex(p => p.id === id);
+  const index = projetosVisiveis.indexOf(id);
   if (index === -1) return;
   projetoAtualIndex = index;
   renderizarProjeto();
@@ -306,7 +307,7 @@ function abrirProjeto(id) {
 }
 
 function renderizarProjeto() {
-  const p = projetos[projetoAtualIndex];
+  const p = projetos.find(p => p.id === projetosVisiveis[projetoAtualIndex]);
   document.getElementById('projeto-titulo').textContent = p.titulo;
   document.getElementById('projeto-ano').textContent = p.ano;
   document.getElementById('projeto-areas').innerHTML = idioma === 'en' ? p.areas_en : p.areas;
@@ -338,7 +339,7 @@ document.addEventListener('keydown', (e) => {
 });
 
 function navegarProjeto(direcao) {
-  projetoAtualIndex = (projetoAtualIndex + direcao + projetos.length) % projetos.length;
+  projetoAtualIndex = (projetoAtualIndex + direcao + projetosVisiveis.length) % projetosVisiveis.length;
   renderizarProjeto();
 }
 
