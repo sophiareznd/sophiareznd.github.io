@@ -348,6 +348,10 @@ body.home-ativa nav ul li a {
   object-position: center 60%;
 }
 
+.card-emilie .capa-projeto {
+  object-position: center 20%;
+}
+
 /* ── MOBILE ── */
 @media (max-width: 768px) {
 
