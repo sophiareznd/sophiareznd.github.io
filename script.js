@@ -91,9 +91,9 @@ const projetos = [
     descricao_en: 'Cosmo is a condensed serif typeface developed over an entire semester, from studying principles to building it in Glyphs. The process started by hand, with many tests and explorations until the formal direction was defined, under the guidance of typographic designer Leopoldo Leal.<br><br>The inspiration comes from cocktail glasses, translated into elongated serifs, sharp details, and medium contrast. The result is a typeface that combines geometric precision and sophistication, applied to a fictional brand universe built especially for it.',
     imagens: [
       { testador: true },
-      'imagens/projetos/cosmo/fotos-01-recorte.jpg',  // sem a borda rosa clara
+      'imagens/projetos/cosmo/fotos-capa.jpg',
       { comparar: ['imagens/projetos/cosmo/comparar-antes.jpg', 'imagens/projetos/cosmo/comparar-depois.jpg'] },
-      { par: ['imagens/projetos/cosmo/fotos-03.jpg', 'imagens/projetos/cosmo/fotos-04.jpg', 'imagens/projetos/cosmo/fotos-05.jpg'], largura: 100 },  // as 3 receitas
+      { par: ['imagens/projetos/cosmo/fotos-03.jpg', 'imagens/projetos/cosmo/fotos-04.jpg', 'imagens/projetos/cosmo/fotos-negroni.jpg'], largura: 100 },  // as 3 receitas
       { src: 'imagens/projetos/cosmo/fotos-07.jpg', largura: 80 },
       { src: 'imagens/projetos/cosmo/fotos-cheers.jpg', largura: 70 },
       { src: 'imagens/projetos/cosmo/fotos-02.jpg', largura: 80 }
