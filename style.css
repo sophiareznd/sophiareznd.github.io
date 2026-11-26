@@ -239,22 +239,39 @@ nav ul li a.ativa {
   padding: 120px 40px 120px;
 }
 
+/* grade de 24 colunas, no espírito da página da Revista ++: larguras variadas, grandes
+   encostadas à esquerda. O tamanho padrão (8 colunas, 3/2) é o mesmo da grade antiga de 3. */
 .projetos-lista {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(24, 1fr);
+  grid-auto-flow: row dense; /* deixa um card menor subir para o espaço livre ao lado de um grande */
   gap: 120px 24px;
+  align-items: start;
 }
 
 .projeto-card {
   cursor: pointer;
+  grid-column: span 8;
+  --proporcao: 3 / 2;
 }
+
+/* coluna inicial / largura / proporção da imagem */
+.projeto-card:nth-child(1) { grid-column: 1 / span 16;  --proporcao: 16 / 10; } /* Revista ++: 2/3 da página */
+.projeto-card:nth-child(2) { grid-column: 17 / span 8;  --proporcao: 1 / 1; }   /* Cosmo: um pouco maior, mais alta */
+.projeto-card:nth-child(3) { grid-column: 1 / span 9;   --proporcao: 3 / 2; }   /* KitKat: um pouco maior */
+.projeto-card:nth-child(4) { grid-column: 17 / span 8;  --proporcao: 5 / 4; }   /* AMA: mesma largura, mais quadrada */
+.projeto-card:nth-child(5) { grid-column: 1 / span 16;  --proporcao: 3 / 2; }   /* Emilie: bem maior, à esquerda */
+.projeto-card:nth-child(6) { grid-column: 1 / span 16;  --proporcao: 3 / 1; }   /* Sinapse: bem maior, à esquerda, cortada na animação */
+.projeto-card:nth-child(7) { grid-column: 17 / span 8; }                        /* Jägerbomb */
+.projeto-card:nth-child(8) { grid-column: 17 / span 8;  --proporcao: 1 / 1; }   /* Anjos e Fadas: quadrado no logo */
+.projeto-card:nth-child(9) { grid-column: 1 / span 8; }                         /* SePosicione */
 
 .projeto-card img,
 .projeto-card video {
   width: 100%;
   display: block;
   object-fit: cover;
-  aspect-ratio: 3 / 2;
+  aspect-ratio: var(--proporcao);
   border-radius: 10px;
   transition: opacity 0.2s ease;
 }
@@ -264,6 +281,12 @@ nav ul li a.ativa {
   object-fit: contain;
   padding: 0 12%;
   background: #fff;
+}
+
+/* Sinapse: a animação é uma faixa larga; corta o branco de cima e de baixo */
+.projeto-card:nth-child(6) .capa-contida {
+  object-fit: cover;
+  padding: 0;
 }
 
 .projeto-card:hover img,
@@ -292,8 +315,11 @@ nav ul li a.ativa {
 @media (max-width: 1100px) and (min-width: 769px) {
   .projetos-lista {
     grid-template-columns: repeat(2, 1fr);
+    grid-auto-flow: row;
     row-gap: 96px;
   }
+  .projeto-card:nth-child(n) { grid-column: auto; }
+  .projeto-card:nth-child(1) { grid-column: 1 / -1; } /* a revista continua grande */
 }
 
 /* ── MOBILE ── */
@@ -353,8 +379,10 @@ nav ul li a.ativa {
 
   .projetos-lista {
     grid-template-columns: 1fr;
+    grid-auto-flow: row;
     gap: 56px;
   }
+  .projeto-card:nth-child(n) { grid-column: 1; }
 
   .card-titulo {
     font-size: 17px;
