@@ -30,8 +30,17 @@ nav.escondida {
   transform: translateY(-100%);
 }
 
-nav .logo img {
-  width: 35px;
+/* S e links do menu usam a mesma cor; na home ela muda junto com a imagem para manter o contraste */
+nav {
+  --nav-cor: #FF568D;
+}
+
+nav .logo svg {
+  display: block;
+  height: 32px;
+  width: auto;
+  cursor: pointer;
+  fill: var(--nav-cor);
 }
 
 nav ul {
@@ -45,7 +54,7 @@ nav ul {
 
 nav ul li a {
   text-decoration: none;
-  color: #FF568D;
+  color: var(--nav-cor);
   font-size: 15px;
 }
 
@@ -305,8 +314,8 @@ nav ul li a.ativa {
     font-size: 12px;
   }
 
-  nav .logo img {
-    width: 28px;
+  nav .logo svg {
+    height: 26px;
   }
 
   /* PÁGINAS */

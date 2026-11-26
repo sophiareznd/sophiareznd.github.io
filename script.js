@@ -47,6 +47,13 @@ window.addEventListener('scroll', () => {
 // mexer o mouse para a direita e para baixo vai avançando pelas imagens, em ordem,
 // até a última no canto de baixo à direita. No celular, arrastar o dedo faz o mesmo.
 const HOME_IMAGENS = [1, 2, 3, 4, 5, 6, 7].map(n => `imagens/home/home-${n}.jpg`);
+// cor do S e do menu em cada imagem, escolhida pelo contraste com a faixa de cima dela
+const HOME_CORES = ['#111111', '#8FF862', '#FF568D', '#8FF862', '#FFFFFF', '#FF568D', '#111111'];
+const NAV_COR_PADRAO = '#FF568D';
+
+function corDoMenu(cor) {
+  document.querySelector('nav').style.setProperty('--nav-cor', cor);
+}
 let homeEls = [];
 let homeAtual = 0;
 
@@ -71,6 +78,7 @@ function iniciarHome() {
     cena.addEventListener('touchmove', e => { const t = e.touches[0]; mover(t.clientX, t.clientY); }, { passive: true });
   }
   mostrarImagemHome(0); // toda vez que a home aparece, começa pela primeira
+  corDoMenu(HOME_CORES[homeAtual]);
 }
 
 function mostrarImagemHome(i) {
@@ -79,6 +87,7 @@ function mostrarImagemHome(i) {
   homeEls[homeAtual].classList.remove('visivel');
   homeEls[i].classList.add('visivel');
   homeAtual = i;
+  corDoMenu(HOME_CORES[i]);
 }
 
 function mostrarPagina(id) {
@@ -98,6 +107,7 @@ function mostrarPagina(id) {
     iniciarHome();
   } else {
     document.body.classList.remove('home-ativa');
+    corDoMenu(NAV_COR_PADRAO);
   }
   // currículo só aparece quando pedem (palavra "Currículo"); trocar de aba guarda
   cvIr('escondido');
