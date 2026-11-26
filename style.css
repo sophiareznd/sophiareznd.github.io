@@ -358,6 +358,12 @@ nav ul li a.ativa {
 }
 
 /* Sinapse: a animação é uma faixa larga; corta o branco de cima e de baixo */
+/* SePosicione: vídeo inteiro (os retângulos animados não podem ser cortados) */
+.projeto-card .capa-inteira {
+  object-fit: contain;
+  background: #fff;
+}
+
 .projeto-card:nth-child(6) .capa-contida {
   object-fit: cover;
   padding: 0;
