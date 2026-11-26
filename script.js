@@ -90,6 +90,7 @@ const projetos = [
     descricao: 'Cosmo é uma tipografia serifada condensada desenvolvida ao longo de um semestre inteiro, do estudo de princípios até a construção no Glyphs. O processo começou à mão, com muitos testes e explorações até a definição da direção formal, com orientação do designer tipográfico Leopoldo Leal.<br><br>A inspiração parte das taças de coquetel, traduzida em serifas alongadas, detalhes afiados e contraste médio. O resultado é uma fonte que une precisão geométrica e sofisticação.',
     descricao_en: 'Cosmo is a condensed serif typeface developed over an entire semester, from studying principles to building it in Glyphs. The process started by hand, with many tests and explorations until the formal direction was defined, under the guidance of typographic designer Leopoldo Leal.<br><br>The inspiration comes from cocktail glasses, translated into elongated serifs, sharp details, and medium contrast. The result is a typeface that combines geometric precision and sophistication, applied to a fictional brand universe built especially for it.',
     imagens: [
+      { testador: true },
       'imagens/projetos/cosmo/fotos-01.jpg',
       'imagens/projetos/cosmo/fotos-02.jpg',
       'imagens/projetos/cosmo/fotos-03.jpg',
@@ -342,6 +343,62 @@ const observadorVideos = new IntersectionObserver(entradas => {
   });
 }, { rootMargin: '400px 0px' });
 
+/* ── TESTADOR DA FONTE COSMO ──
+   A fonte só tem A–Z, vírgula, ponto, espaço e "•". Tudo vira caixa alta, acentos perdem
+   o acento (á → A, ç → C) e qualquer outro caractere é descartado. */
+const COSMO_TEXTO = 'A COSMOPOLITAN PLEASE';
+let cosmoTexto = COSMO_TEXTO;
+let cosmoTamanho = 40;
+
+function filtrarCosmo(texto) {
+  return texto.normalize('NFD').replace(/[\u0300-\u036f]/g, '').toUpperCase().replace(/[^A-Z ,.•]/g, '');
+}
+
+function criarTestador(en) {
+  const box = document.createElement('div');
+  box.className = 'testador';
+  box.innerHTML = `
+    <div class="testador-controles">
+      <label class="testador-campo">
+        <span>${en ? 'Type here' : 'Escreva aqui'}</span>
+        <input type="text" spellcheck="false" autocomplete="off" maxlength="120">
+      </label>
+      <label class="testador-tamanho">
+        <span>${en ? 'Size' : 'Tamanho'} <b></b></span>
+        <input type="range" min="16" max="${innerWidth < 600 ? 120 : 220}" step="1">
+      </label>
+    </div>
+    <p class="testador-amostra"></p>`;
+  const campo = box.querySelector('input[type=text]');
+  const faixa = box.querySelector('input[type=range]');
+  const amostra = box.querySelector('.testador-amostra');
+  const numero = box.querySelector('b');
+
+  const atualizar = () => {
+    amostra.textContent = cosmoTexto || ' ';
+    amostra.style.fontSize = cosmoTamanho + 'px';
+    numero.textContent = cosmoTamanho;
+  };
+  campo.value = cosmoTexto;
+  faixa.value = cosmoTamanho;
+  campo.addEventListener('input', () => {
+    const pos = campo.selectionStart;
+    const antes = campo.value;
+    const limpo = filtrarCosmo(antes);
+    if (limpo !== antes) {
+      campo.value = limpo;
+      // mantém o cursor no lugar, descontando o que foi removido antes dele
+      const novaPos = filtrarCosmo(antes.slice(0, pos)).length;
+      campo.setSelectionRange(novaPos, novaPos);
+    }
+    cosmoTexto = campo.value;
+    atualizar();
+  });
+  faixa.addEventListener('input', () => { cosmoTamanho = +faixa.value; atualizar(); });
+  atualizar();
+  return box;
+}
+
 function renderizarExpandido() {
   const p = projetos[projetoAtualIndex];
   const en = idioma === 'en';
@@ -372,6 +429,10 @@ function renderizarExpandido() {
   p.imagens.forEach(item => {
     if (item.revista) {
       container.appendChild(criarRevista(item));
+      return;
+    }
+    if (item.testador) {  // { testador: true } = campo para escrever com a fonte Cosmo
+      container.appendChild(criarTestador(en));
       return;
     }
     if (item.olho) {  // { olho: 'texto', olho_en } = citação grande no meio da galeria
