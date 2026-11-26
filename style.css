@@ -648,8 +648,9 @@ nav ul li a.ativa {
 
 .exp-nav {
   grid-column: 1 / -1;
-  display: flex;
-  justify-content: space-between;
+  /* anterior à esquerda, "voltar ao topo" exatamente no meio, próximo à direita */
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
   gap: 24px;
   margin-top: 80px;
   padding: 24px 0 40px;
@@ -664,6 +665,14 @@ nav ul li a.ativa {
 
 .exp-nav-link:hover {
   color: #FF568D;
+}
+
+.exp-nav-topo {
+  text-align: center;
+}
+
+.exp-nav-proximo {
+  text-align: right;
 }
 
 
