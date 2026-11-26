@@ -234,7 +234,7 @@ const projetos = [
   },
   {
     id: 'emilie',
-    titulo: 'Premiação Emilie Chamie e Mostra Estudantil',
+    titulo: 'Premiação Emilie Chamie\ne Mostra Estudantil',
     ano: '2025',
     subtitulo: 'Identidade visual para dois eventos do curso de Design da ESPM',
     subtitulo_en: 'Visual identity for two events of the ESPM Design program',

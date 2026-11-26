@@ -518,6 +518,7 @@ body:has(#projeto-expandido.ativa) #rodape {
 
 .exp-titulo {
   grid-column: 1 / -1;
+  white-space: pre-line;  /* permite quebra de linha no título (\n) */
   font-size: 56px;
   font-weight: 400;
   line-height: 1.05;
