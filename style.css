@@ -274,7 +274,7 @@ nav ul li a.ativa {
   .projetos-lista {
     display: block;
     position: relative;
-    height: calc(292cqw + 310px); /* os px extras são os respiros a mais entre AMA/Emilie, Emilie/Jägerbomb e Sinapse/última linha */
+    height: calc(297.2cqw + 516px); /* os px extras são os respiros de 140px abaixo dos textos (Cosmo, AMA, Emilie, Sinapse) */
   }
   .projeto-card {
     position: absolute;
@@ -282,13 +282,13 @@ nav ul li a.ativa {
   /*                                left        top          largura */
   .projeto-card:nth-child(1) { left: 0;      top: 0;      width: 63.6cqw; } /* Revista ++ */
   .projeto-card:nth-child(2) { left: 63cqw;   top: 40cqw;    width: 37cqw;   } /* Cosmo */
-  .projeto-card:nth-child(3) { left: 0;      top: 71.8cqw;  width: 59cqw;   } /* KitKat */
-  .projeto-card:nth-child(4) { left: 61cqw;   top: 88.4cqw;  width: 39cqw;   } /* AMA */
-  .projeto-card:nth-child(5) { left: 0;      top: calc(129.3cqw + 51px);  width: 84.2cqw; } /* Emilie */
-  .projeto-card:nth-child(7) { left: 49.9cqw; top: calc(185.2cqw + 184px); width: 50.1cqw; } /* Jägerbomb */
-  .projeto-card:nth-child(6) { left: 0;      top: calc(229.6cqw + 184px); width: 62cqw;   } /* Sinapse */
-  .projeto-card:nth-child(9) { left: 17cqw;   top: calc(254.9cqw + 310px); width: 35.4cqw; } /* SePosicione */
-  .projeto-card:nth-child(8) { left: 55.7cqw; top: calc(254.9cqw + 310px); width: 35.4cqw; } /* Anjos e Fadas */
+  .projeto-card:nth-child(3) { left: 0;      top: calc(77cqw + 206px);    width: 59cqw;   } /* KitKat: 140px abaixo do texto da Cosmo */
+  .projeto-card:nth-child(4) { left: 61cqw;   top: calc(93.6cqw + 206px);  width: 39cqw;   } /* AMA */
+  .projeto-card:nth-child(5) { left: 0;      top: calc(134.5cqw + 257px); width: 84.2cqw; } /* Emilie */
+  .projeto-card:nth-child(7) { left: 49.9cqw; top: calc(190.4cqw + 390px); width: 50.1cqw; } /* Jägerbomb */
+  .projeto-card:nth-child(6) { left: 0;      top: calc(234.8cqw + 390px); width: 62cqw;   } /* Sinapse */
+  .projeto-card:nth-child(9) { left: 17cqw;   top: calc(260.1cqw + 516px); width: 35.4cqw; } /* SePosicione */
+  .projeto-card:nth-child(8) { left: 55.7cqw; top: calc(260.1cqw + 516px); width: 35.4cqw; } /* Anjos e Fadas */
 }
 
 .projeto-card img,
