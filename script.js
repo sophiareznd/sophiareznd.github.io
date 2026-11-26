@@ -48,7 +48,7 @@ window.addEventListener('scroll', () => {
 // até a última no canto de baixo à direita. No celular, arrastar o dedo faz o mesmo.
 const HOME_IMAGENS = [1, 2, 3, 4, 5, 6, 7].map(n => `imagens/home/home-${n}.jpg`);
 // cor do S e do menu em cada imagem (a 2 é o amarelo dos + da revista na foto)
-const HOME_CORES = ['#111111', '#E6D934', '#FF3600', '#E53030', '#423E8E', '#FF9843', '#E51381'];
+const HOME_CORES = ['#111111', '#E6D934', '#FF3600', '#E53030', '#B7D159', '#FF9843', '#E51381'];
 const NAV_COR_PADRAO = '#FF568D';
 
 function corDoMenu(cor) {
