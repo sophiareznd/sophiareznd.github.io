@@ -261,7 +261,7 @@ nav ul li a.ativa {
 .projeto-card:nth-child(5) { grid-column: 1 / span 4;  --proporcao: 3 / 2;   margin-top: 40px; }
 .projeto-card:nth-child(6) { grid-column: 7 / span 6;  --proporcao: 2 / 1;   margin-top: 200px; }
 .projeto-card:nth-child(7) { grid-column: 3 / span 8;  --proporcao: 16 / 9; }
-.projeto-card:nth-child(8) { grid-column: 1 / span 3;  --proporcao: 3 / 5;   margin-top: 60px; }
+.projeto-card:nth-child(8) { grid-column: 1 / span 3;  --proporcao: 1 / 1;   margin-top: 60px; }
 .projeto-card:nth-child(9) { grid-column: 6 / span 7;  --proporcao: 16 / 9;  margin-top: 280px; }
 
 .projeto-card img,
