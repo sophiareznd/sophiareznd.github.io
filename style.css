@@ -117,6 +117,18 @@ nav ul li a.ativa {
   margin-top: 193px;
   margin-left: 41%;
   align-self: flex-start;
+  position: relative;
+}
+
+/* foto à esquerda do texto, sem empurrar as colunas */
+.sobre-foto {
+  position: absolute;
+  top: 0;
+  right: calc(100% + 41px);
+  width: 132px;
+  height: 175px;
+  object-fit: cover;
+  object-position: center top;
 }
 
 .sobre-skills .sobre-titulo {
@@ -421,6 +433,10 @@ nav ul li a.ativa {
 
   .sobre-skills {
     padding-left: 0;
+  }
+
+  .sobre-foto {
+    position: static;
   }
 
 
