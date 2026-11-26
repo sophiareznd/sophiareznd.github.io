@@ -56,6 +56,7 @@ nav ul li a {
   text-decoration: none;
   color: var(--nav-cor);
   font-size: 15px;
+  text-transform: uppercase;
 }
 
 nav ul li a.ativa {
