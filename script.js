@@ -94,6 +94,7 @@ const projetos = [
       'imagens/projetos/cosmo/fotos-01.jpg',
       'imagens/projetos/cosmo/fotos-02.jpg',
       'imagens/projetos/cosmo/fotos-03.jpg',
+      { comparar: ['imagens/projetos/cosmo/comparar-antes.jpg', 'imagens/projetos/cosmo/comparar-depois.jpg'] },
       'imagens/projetos/cosmo/fotos-04.jpg',
       'imagens/projetos/cosmo/fotos-05.jpg',
       'imagens/projetos/cosmo/fotos-06.jpg',
@@ -399,6 +400,24 @@ function criarTestador(en) {
   return box;
 }
 
+/* ── COMPARADOR ANTES/DEPOIS (como o Juxtapose do Behance) ──
+   As duas imagens ficam uma sobre a outra; a de cima ("antes") é recortada até a linha.
+   Um <input range> invisível por cima faz o arraste com mouse, toque e teclado. */
+function criarComparador([antes, depois], en) {
+  const box = document.createElement('div');
+  box.className = 'comparar';
+  box.innerHTML = `
+    <img src="${depois}" alt="" loading="lazy" draggable="false">
+    <img class="comparar-antes" src="${antes}" alt="" loading="lazy" draggable="false">
+    <span class="comparar-linha"><span class="comparar-alca"></span></span>
+    <input type="range" min="0" max="100" step="0.1" value="50" aria-label="${en ? 'Compare sketch and final typeface' : 'Comparar esboço e fonte final'}">`;
+  const faixa = box.querySelector('input');
+  const mover = () => box.style.setProperty('--pos', faixa.value + '%');
+  faixa.addEventListener('input', mover);
+  mover();
+  return box;
+}
+
 function renderizarExpandido() {
   const p = projetos[projetoAtualIndex];
   const en = idioma === 'en';
@@ -429,6 +448,10 @@ function renderizarExpandido() {
   p.imagens.forEach(item => {
     if (item.revista) {
       container.appendChild(criarRevista(item));
+      return;
+    }
+    if (item.comparar) {  // { comparar: [antes, depois] } = slider antes/depois (arrasta a linha)
+      container.appendChild(criarComparador(item.comparar, en));
       return;
     }
     if (item.testador) {  // { testador: true } = campo para escrever com a fonte Cosmo
