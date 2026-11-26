@@ -690,7 +690,7 @@ body:has(#projeto-expandido.ativa) #rodape {
   font-size: 16px;
   color: #222;
   padding: 10px 12px;
-  border: 1px solid #ccc;
+  border: 1px solid #FF568D;
   border-radius: 6px;
   outline: none;
 }
@@ -712,7 +712,7 @@ body:has(#projeto-expandido.ativa) #rodape {
   margin-top: 28px;
   font-family: 'Cosmo', serif;
   line-height: 1.1;
-  color: #FF568D;
+  color: #222;
   overflow-wrap: anywhere;
   min-height: 1.1em;
 }
