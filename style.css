@@ -56,10 +56,6 @@ nav ul li a {
   text-decoration: none;
   color: var(--nav-cor);
   font-size: 15px;
-  text-transform: uppercase;
-  /* Futura PT Book (Adobe Fonts); enquanto o kit não está ligado, usa a Futura do sistema */
-  font-family: 'futura-pt', 'Futura PT', Futura, 'Helvetica Neue', Helvetica, Arial, sans-serif;
-  font-weight: 400;
 }
 
 nav ul li a.ativa {
