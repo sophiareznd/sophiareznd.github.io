@@ -196,6 +196,36 @@ nav ul li a.ativa {
   cursor: pointer;
 }
 
+/* botão de baixar o currículo: aparece no canto da folha quando ela está aberta */
+.cv-baixar {
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 7px 12px;
+  font-size: 13px;
+  color: #fff;
+  background: #FF568D;
+  border-radius: 999px;
+  text-decoration: none;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.18);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.2s ease, background 0.15s ease;
+}
+
+.cv-baixar svg { width: 15px; height: 15px; }
+
+#curriculo.aberto .cv-baixar {
+  opacity: 1;
+  pointer-events: auto;
+  cursor: pointer;
+}
+
+.cv-baixar:hover { background: #e0457a; }
+
 @keyframes tecla-wiggle {
   from { transform: rotate(-6deg); }
   to   { transform: rotate(6deg); }

@@ -666,7 +666,7 @@ function fecharCurriculo() {
 
   cv.addEventListener('pointerdown', e => {
     if (cvEstado === 'escondido') return;
-    if (cvEstado === 'aberto' && e.target.closest('.cv-link')) return;  // deixa o link funcionar
+    if (cvEstado === 'aberto' && e.target.closest('.cv-link, .cv-baixar')) return;  // deixa o link funcionar
     segurando = true; arrastou = false;
     inicioY = e.clientY;
     inicioPos = parseFloat(getComputedStyle(cv).getPropertyValue('--y')) || cvPosicao(cvEstado);
