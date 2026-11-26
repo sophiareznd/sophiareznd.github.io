@@ -96,9 +96,7 @@ const projetos = [
       'imagens/projetos/cosmo/fotos-04.jpg',
       'imagens/projetos/cosmo/fotos-05.jpg',
       'imagens/projetos/cosmo/fotos-06.jpg',
-      'imagens/projetos/cosmo/fotos-07.jpg',
-      'imagens/projetos/cosmo/fotos-08.jpg',
-      'imagens/projetos/cosmo/fotos-09.jpg'
+      'imagens/projetos/cosmo/fotos-07.jpg'
     ]
   },
   {
