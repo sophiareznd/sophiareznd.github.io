@@ -238,6 +238,42 @@ nav ul li a.ativa {
 
 .cv-baixar:hover { background: #e0457a; }
 
+/* RODAPÉ: e-mail/cidade à esquerda e ".2026" à direita; só nas páginas de projetos */
+#rodape {
+  display: none;
+  justify-content: space-between;
+  align-items: flex-end;
+  padding: 80px 25px 25px;
+  color: #FF568D;
+  font-size: 14px;
+  line-height: 1.4;
+}
+
+body:has(#projetos.ativa) #rodape,
+body:has(#projeto-expandido.ativa) #rodape {
+  display: flex;
+}
+
+#rodape a {
+  color: inherit;
+  text-decoration: none;
+}
+
+#rodape a:hover {
+  text-decoration: underline;
+}
+
+.rodape-ano {
+  display: block;
+  width: 150px;
+  height: auto;
+  fill: currentColor;
+}
+
+@media (max-width: 600px) {
+  .rodape-ano { width: 100px; }
+}
+
 /* LIGHTBOX */
 #lightbox {
   display: none;
