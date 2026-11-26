@@ -238,21 +238,6 @@ nav ul li a.ativa {
 
 .cv-baixar:hover { background: #e0457a; }
 
-@keyframes tecla-wiggle {
-  from { transform: rotate(-6deg); }
-  to   { transform: rotate(6deg); }
-}
-
-.sophia-btn {
-  cursor: pointer;
-  transition: color 0.15s ease;
-  text-decoration: underline;
-}
-
-.sophia-btn:hover {
-  color: #FF568D;
-}
-
 /* LIGHTBOX */
 #lightbox {
   display: none;
