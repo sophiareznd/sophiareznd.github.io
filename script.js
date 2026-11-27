@@ -95,6 +95,7 @@ const projetos = [
       { comparar: ['imagens/projetos/cosmo/comparar-antes.jpg', 'imagens/projetos/cosmo/comparar-depois.jpg'] },
       { par: ['imagens/projetos/cosmo/fotos-03.jpg', 'imagens/projetos/cosmo/fotos-04.jpg', 'imagens/projetos/cosmo/fotos-negroni.jpg'], largura: 100 },  // as 3 receitas
       { src: 'imagens/projetos/cosmo/fotos-07.jpg', largura: 80 },
+      { src: 'imagens/projetos/cosmo/video-drinks-loop.mp4', largura: 50 },
       { src: 'imagens/projetos/cosmo/fotos-cheers.jpg', largura: 70 },
       { src: 'imagens/projetos/cosmo/fotos-02.jpg', largura: 80 }
     ]
