@@ -501,7 +501,7 @@ function renderizarExpandido() {
       img.src = src;
       img.alt = p.titulo;
       img.loading = 'lazy';
-      img.addEventListener('click', () => abrirLightbox(src));
+      img.addEventListener('click', () => abrirLightbox(img));
       img.addEventListener('load', () => {
         img.style.flexGrow = img.naturalWidth / img.naturalHeight;
         reavaliarVideos();
@@ -651,10 +651,51 @@ document.addEventListener('keydown', e => {
   if (e.key === 'ArrowLeft') revistaFlip.flipPrev();
 });
 
-function abrirLightbox(src) {
-  document.getElementById('lightbox-img').src = src;
-  document.getElementById('lightbox').classList.add('ativo');
+/* ── LIGHTBOX ──
+   Ao ampliar uma foto do projeto, as setas (ou ← → no teclado, ou arrastar no celular)
+   passam pelas outras fotos do mesmo projeto, na ordem da página. Vídeos ficam de fora. */
+let lightboxFotos = [];
+let lightboxIndice = 0;
+
+function abrirLightbox(img) {
+  lightboxFotos = [...document.querySelectorAll('#exp-imagens .exp-linha > img')].map(i => i.src);
+  lightboxIndice = Math.max(0, lightboxFotos.indexOf(img.src));
+  const lb = document.getElementById('lightbox');
+  lb.classList.toggle('unica', lightboxFotos.length < 2);
+  mostrarLightbox();
+  lb.classList.add('ativo');
 }
+
+function mostrarLightbox() {
+  document.getElementById('lightbox-img').src = lightboxFotos[lightboxIndice];
+  document.getElementById('lightbox-contador').textContent = `${lightboxIndice + 1} / ${lightboxFotos.length}`;
+  // já baixa a próxima para a troca ser instantânea
+  const prox = lightboxFotos[(lightboxIndice + 1) % lightboxFotos.length];
+  if (prox) new Image().src = prox;
+}
+
+function passarLightbox(direcao) {
+  if (lightboxFotos.length < 2) return;
+  lightboxIndice = (lightboxIndice + direcao + lightboxFotos.length) % lightboxFotos.length;
+  mostrarLightbox();
+}
+
+// no celular: arrastar para o lado passa a foto
+(function () {
+  const lb = document.getElementById('lightbox');
+  let x0 = null;
+  lb.addEventListener('touchstart', e => { x0 = e.touches[0].clientX; }, { passive: true });
+  lb.addEventListener('touchend', e => {
+    if (x0 === null) return;
+    const dx = e.changedTouches[0].clientX - x0;
+    x0 = null;
+    if (Math.abs(dx) > 50) { passarLightbox(dx < 0 ? 1 : -1); lb.dataset.arrastou = '1'; }
+  });
+  // um arraste não deve fechar o lightbox (o toque também gera um clique)
+  lb.addEventListener('click', e => {
+    if (lb.dataset.arrastou) { delete lb.dataset.arrastou; e.stopImmediatePropagation(); }
+  }, true);
+})();
 
 function fecharLightbox() {
   document.getElementById('lightbox').classList.remove('ativo');
@@ -742,6 +783,10 @@ function fecharCurriculo() {
 
 document.addEventListener('keydown', (e) => {
   if (e.key === 'Escape') { fecharLightbox(); fecharCurriculo(); }
+  if (document.getElementById('lightbox').classList.contains('ativo')) {
+    if (e.key === 'ArrowRight') passarLightbox(1);
+    if (e.key === 'ArrowLeft') passarLightbox(-1);
+  }
 });
 
 function navegarProjeto(direcao) {

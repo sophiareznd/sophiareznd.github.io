@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Sophia Rezende</title>
   <link rel="icon" type="image/png" href="imagens/teclas/teclas-s.png">
-  <link rel="stylesheet" href="style.css?v=86">
+  <link rel="stylesheet" href="style.css?v=88">
   <script src="https://cdn.jsdelivr.net/npm/page-flip@2.0.7/dist/js/page-flip.browser.js"></script>
 </head>
 <body>
@@ -155,9 +155,12 @@
   </div>
 
   <div id="lightbox" onclick="fecharLightbox()">
-    <img id="lightbox-img" src="">
+    <button class="lightbox-seta lightbox-anterior" onclick="event.stopPropagation(); passarLightbox(-1)" aria-label="Imagem anterior">‹</button>
+    <img id="lightbox-img" src="" alt="">
+    <button class="lightbox-seta lightbox-proxima" onclick="event.stopPropagation(); passarLightbox(1)" aria-label="Próxima imagem">›</button>
+    <span class="lightbox-contador" id="lightbox-contador"></span>
   </div>
 
-  <script src="script.js?v=116"></script>
+  <script src="script.js?v=117"></script>
 </body>
 </html>
