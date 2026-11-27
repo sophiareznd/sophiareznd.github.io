@@ -332,7 +332,9 @@ function exibirProjetoAtual() {
    com o caminho em ?p=...; aqui ele é lido e a página certa é aberta. */
 const TITULO_SITE = 'Sophia Rezende';
 const ROTA_DA_PAGINA = { home: '/', projetos: '/projetos', sobre: '/sobre' };
-const SLUG_DO_PROJETO = { maismais: 'revista' };  // nomes mais bonitos no endereço
+const SLUG_DO_PROJETO = {};  // nomes diferentes do id no endereço, se precisar
+// outros endereços que também abrem um projeto (/++ e /revista abrem a Revista ++)
+const APELIDOS = { '++': 'maismais', 'revista': 'maismais' };
 let restaurandoHistorico = false;
 
 function slugDoProjeto(p) { return SLUG_DO_PROJETO[p.id] || p.id; }
@@ -347,7 +349,7 @@ function abrirRota(caminho) {
   const nome = decodeURIComponent(caminho).replace(/^\/+|\/+$/g, '').toLowerCase();
   if (!nome) return mostrarPagina('home');
   if (nome === 'projetos' || nome === 'sobre') return mostrarPagina(nome);
-  const p = projetos.find(p => slugDoProjeto(p) === nome || p.id === nome);
+  const p = projetos.find(p => slugDoProjeto(p) === nome || p.id === (APELIDOS[nome] || nome));
   if (p) return abrirProjeto(p.id);
   mostrarPagina('home');  // endereço desconhecido: vai para o início
   history.replaceState(null, '', '/');
