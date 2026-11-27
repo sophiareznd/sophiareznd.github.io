@@ -63,8 +63,8 @@ function mostrarImagemHome(i) {
 function mostrarPagina(id) {
   document.querySelectorAll('.pagina').forEach(p => p.classList.remove('ativa'));
   document.getElementById(id).classList.add('ativa');
-  document.querySelectorAll('nav ul li a').forEach(a => a.classList.remove('ativa'));
-  if (event && event.target) event.target.classList.add('ativa');
+  document.querySelectorAll('nav ul li a').forEach(a => a.classList.toggle('ativa', a.dataset.pagina === id));
+  if (id !== 'projeto-expandido') atualizarEndereco(ROTA_DA_PAGINA[id], TITULO_SITE);
   if (id === 'home') {
     document.body.classList.add('home-ativa');
     iniciarHome();
@@ -320,8 +320,54 @@ function abrirProjeto(id) {
 function exibirProjetoAtual() {
   renderizarExpandido();
   mostrarPagina('projeto-expandido');
+  const p = projetos[projetoAtualIndex];
+  atualizarEndereco('/' + slugDoProjeto(p), p.titulo.replace('\n', ' ') + ' — ' + TITULO_SITE);
   window.scrollTo(0, 0);
 }
+
+/* ── ENDEREÇOS (rotas) ──
+   Cada aba e cada projeto tem o próprio endereço: /projetos, /sobre, /cosmo, /revista...
+   Assim dá para abrir em nova guia (botão direito) e mandar o link de um projeto direto.
+   O GitHub Pages não conhece esses caminhos e entrega o 404.html, que volta para cá
+   com o caminho em ?p=...; aqui ele é lido e a página certa é aberta. */
+const TITULO_SITE = 'Sophia Rezende';
+const ROTA_DA_PAGINA = { home: '/', projetos: '/projetos', sobre: '/sobre' };
+const SLUG_DO_PROJETO = { maismais: 'revista' };  // nomes mais bonitos no endereço
+let restaurandoHistorico = false;
+
+function slugDoProjeto(p) { return SLUG_DO_PROJETO[p.id] || p.id; }
+
+function atualizarEndereco(caminho, titulo) {
+  if (titulo) document.title = titulo;
+  if (!caminho || restaurandoHistorico || location.pathname === caminho) return;
+  history.pushState(null, '', caminho);
+}
+
+function abrirRota(caminho) {
+  const nome = decodeURIComponent(caminho).replace(/^\/+|\/+$/g, '').toLowerCase();
+  if (!nome) return mostrarPagina('home');
+  if (nome === 'projetos' || nome === 'sobre') return mostrarPagina(nome);
+  const p = projetos.find(p => slugDoProjeto(p) === nome || p.id === nome);
+  if (p) return abrirProjeto(p.id);
+  mostrarPagina('home');  // endereço desconhecido: vai para o início
+  history.replaceState(null, '', '/');
+}
+
+// clique normal num link interno troca de página sem recarregar;
+// com botão do meio, Ctrl/Cmd ou "abrir em nova guia", o navegador abre o endereço normalmente
+document.addEventListener('click', e => {
+  const a = e.target.closest('a[href^="/"]');
+  if (!a || e.button !== 0 || e.metaKey || e.ctrlKey || e.shiftKey || e.altKey || a.target === '_blank') return;
+  e.preventDefault();
+  abrirRota(a.getAttribute('href'));
+});
+
+// voltar/avançar do navegador
+addEventListener('popstate', () => {
+  restaurandoHistorico = true;
+  abrirRota(location.pathname);
+  restaurandoHistorico = false;
+});
 
 // vídeos das galerias: baixam quando chegam perto da tela e pausam quando saem dela.
 // Enquanto as fotos acima ainda carregam, a página fica "curta" e tudo parece perto do topo,
@@ -527,8 +573,12 @@ function renderizarExpandido() {
   });
 
   const total = projetos.length;
-  document.getElementById('exp-anterior').textContent = projetos[(projetoAtualIndex - 1 + total) % total].titulo;
-  document.getElementById('exp-proximo').textContent = projetos[(projetoAtualIndex + 1) % total].titulo;
+  const anterior = projetos[(projetoAtualIndex - 1 + total) % total];
+  const proximo = projetos[(projetoAtualIndex + 1) % total];
+  document.getElementById('exp-anterior').textContent = anterior.titulo;
+  document.getElementById('exp-proximo').textContent = proximo.titulo;
+  document.getElementById('exp-link-anterior').href = '/' + slugDoProjeto(anterior);
+  document.getElementById('exp-link-proximo').href = '/' + slugDoProjeto(proximo);
 
   // a seção só fica visível depois do mostrarPagina, então o leitor mede o espaço no próximo frame
   requestAnimationFrame(iniciarRevista);
@@ -848,5 +898,11 @@ function alternarIdioma() {
   }
 }
 
-document.body.classList.add('home-ativa');
-iniciarHome();
+// abre a página do endereço atual (ou do ?p= que o 404.html mandou)
+(function () {
+  const pedido = new URLSearchParams(location.search).get('p');
+  if (pedido) history.replaceState(null, '', pedido);
+  restaurandoHistorico = true;
+  abrirRota(location.pathname);
+  restaurandoHistorico = false;
+})();

@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Sophia Rezende</title>
+  <script>
+    // O GitHub Pages não conhece endereços como /cosmo ou /projetos e mostra esta página.
+    // Ela volta para a página principal levando o caminho em ?p=..., e o script.js abre
+    // a aba ou o projeto certo e devolve o endereço bonito para a barra do navegador.
+    var caminho = location.pathname.replace(/\/+$/, '') || '/';
+    location.replace('/?p=' + encodeURIComponent(caminho) + location.hash);
+  </script>
+</head>
+<body></body>
+</html>

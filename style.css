@@ -35,6 +35,10 @@ nav {
   --nav-cor: #FF568D;
 }
 
+nav .logo a {
+  display: block;
+}
+
 nav .logo svg {
   display: block;
   height: 32px;
@@ -362,6 +366,9 @@ body:has(#projeto-expandido.ativa) #rodape {
 }
 
 .projeto-card {
+  display: block;  /* agora é um link (<a>), para abrir em nova guia */
+  color: inherit;
+  text-decoration: none;
   cursor: pointer;
   --proporcao: 3 / 2;
 }
@@ -949,6 +956,7 @@ body:has(#projeto-expandido.ativa) #rodape {
 }
 
 .exp-nav-link {
+  text-decoration: none;
   cursor: pointer;
   color: #222;
 }
