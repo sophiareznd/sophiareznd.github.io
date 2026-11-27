@@ -249,6 +249,7 @@ const projetos = [
     descricao_en: 'Visual identity proposal for two events of the ESPM Design program that take place on the same day: the Student Exhibition, which awards the best works of the year, and the Emilie Chamie Prize, an award for the best PGDs in honor of the pioneer of São Paulo design.<br><br>The concept stems from gradients formed by many colors, representing students, ideas, and creativity coexisting within the program. In the two posters, the organization of the gradients changes: more structured for the Emilie Chamie, more fragmented for the Exhibition, reflecting the different moments of the academic journey.',
     imagens: [
       'imagens/projetos/emilie/fotos-01.jpg',
+      { src: 'imagens/projetos/emilie/video-mockup-ponto.mp4', largura: 60 },
       'imagens/projetos/emilie/fotos-02.jpg',
       'imagens/projetos/emilie/fotos-03.jpg'
     ]
