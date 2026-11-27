@@ -281,7 +281,7 @@ const projetos = [
       { src: 'imagens/projetos/rebot/rebot-02.jpg', largura: 60 },     // símbolo
       { src: 'imagens/projetos/rebot/video-paleta.mp4', largura: 50 }, // cores
       { par: ['imagens/projetos/rebot/rebot-04.jpg', 'imagens/projetos/rebot/rebot-05.jpg', 'imagens/projetos/rebot/rebot-03.jpg'], largura: 100 },  // caneca, chaveiro, notebook
-      { src: 'imagens/projetos/rebot/rebot-poster-parede.jpg', largura: 50 },  // pôster
+      'imagens/projetos/rebot/rebot-posters-parede.jpg',  // pôsteres
       { src: 'imagens/projetos/rebot/rebot-06.jpg', largura: 40 }      // adesivos
     ]
   },
