@@ -264,7 +264,7 @@ const projetos = [
   },
   {
     id: 'jagerbomb',
-    titulo: 'Jägerbomb',
+    titulo: 'REBOT',
     ano: '2025',
     subtitulo: 'Identidade visual para uma banda independente',
     subtitulo_en: 'Visual identity for an independent band',
@@ -332,9 +332,9 @@ function exibirProjetoAtual() {
    com o caminho em ?p=...; aqui ele é lido e a página certa é aberta. */
 const TITULO_SITE = 'Sophia Rezende';
 const ROTA_DA_PAGINA = { home: '/', projetos: '/projetos', sobre: '/sobre' };
-const SLUG_DO_PROJETO = {};  // nomes diferentes do id no endereço, se precisar
+const SLUG_DO_PROJETO = { jagerbomb: 'rebot' };  // nomes diferentes do id no endereço
 // outros endereços que também abrem um projeto (/++ e /revista abrem a Revista ++)
-const APELIDOS = { '++': 'maismais', 'revista': 'maismais' };
+const APELIDOS = { '++': 'maismais', 'revista': 'maismais', 'jagerbomb': 'jagerbomb' };
 let restaurandoHistorico = false;
 
 function slugDoProjeto(p) { return SLUG_DO_PROJETO[p.id] || p.id; }
