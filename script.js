@@ -251,7 +251,6 @@ const projetos = [
       'imagens/projetos/emilie/video-faixa-fina.mp4',
       'imagens/projetos/emilie/fotos-01.jpg',
       { src: 'imagens/projetos/emilie/video-mockup-ponto-recorte.mp4', largura: 60 },
-      'imagens/projetos/emilie/fotos-02.jpg',
       'imagens/projetos/emilie/artes-02.jpg',
       'imagens/projetos/emilie/artes-05.jpg'
     ]
