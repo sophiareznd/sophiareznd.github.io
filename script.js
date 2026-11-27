@@ -266,8 +266,8 @@ const projetos = [
     id: 'jagerbomb',
     titulo: 'REBOT',
     ano: '2025',
-    subtitulo: 'Identidade visual para uma banda independente',
-    subtitulo_en: 'Visual identity for an independent band',
+    subtitulo: 'Identidade visual para um robô de combate beetleweight undercutter',
+    subtitulo_en: 'Visual identity for a beetleweight undercutter combat robot',
     meta: [
       { pt: 'Ano', en: 'Year', valor: '2025' },
       { pt: 'Créditos', en: 'Credits', valor: 'Sophia Rezende' }
@@ -277,10 +277,12 @@ const projetos = [
     descricao: 'Jägerbomb é uma identidade visual desenvolvida para uma banda independente que carrega a mesma energia do drink que inspira seu nome: Jägermeister com Red Bull. A proposta foi traduzir esse conceito em um sistema gráfico intenso, direto e explosivo.<br><br>O resultado combina atitude e impacto visual em uma identidade que funciona tanto nos materiais digitais quanto nas aplicações físicas da banda.',
     descricao_en: 'Jägerbomb is a visual identity developed for an independent band that carries the same energy as the drink that inspired its name: Jägermeister with Red Bull. The goal was to translate this concept into an intense, direct, and explosive graphic system.<br><br>The result combines attitude and visual impact in an identity that works both in digital materials and in the band\'s physical applications.',
     imagens: [
-      'imagens/projetos/jagerbomb/fotos-01.jpg',
-      'imagens/projetos/jagerbomb/fotos-02.jpg',
-      'imagens/projetos/jagerbomb/fotos-03.jpg',
-      'imagens/projetos/jagerbomb/fotos-04.jpg'
+      'imagens/projetos/rebot/rebot-01.jpg',
+      'imagens/projetos/rebot/rebot-02.jpg',
+      'imagens/projetos/rebot/rebot-03.jpg',
+      'imagens/projetos/rebot/rebot-04.jpg',
+      'imagens/projetos/rebot/rebot-05.jpg',
+      'imagens/projetos/rebot/rebot-06.jpg'
     ]
   },
   {
