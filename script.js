@@ -490,6 +490,14 @@ function renderizarExpandido() {
         video.addEventListener('mouseenter', () => { video.controls = true; });
         video.addEventListener('mouseleave', () => { video.controls = false; });
         video.addEventListener('touchstart', () => { video.controls = true; }, { passive: true });
+        // clique amplia (como as fotos); cliques na barra de controles embaixo continuam funcionando
+        video.dataset.arquivo = new URL(src, location.href).href;
+        video.addEventListener('click', e => {
+          const r = video.getBoundingClientRect();
+          if (video.controls && e.clientY > r.bottom - 48) return;
+          e.preventDefault();
+          abrirLightbox(video);
+        });
         // na dupla alinhada, cada item cresce na proporção do seu formato → alturas iguais
         video.addEventListener('loadedmetadata', () => {
           video.style.flexGrow = video.videoWidth / video.videoHeight;
@@ -652,31 +660,50 @@ document.addEventListener('keydown', e => {
 });
 
 /* ── LIGHTBOX ──
-   Ao ampliar uma foto do projeto, as setas (ou ← → no teclado, ou arrastar no celular)
-   passam pelas outras fotos do mesmo projeto, na ordem da página. Vídeos ficam de fora. */
-let lightboxFotos = [];
+   Ao ampliar uma foto ou vídeo do projeto, as setas (ou ← → no teclado, ou arrastar no celular)
+   passam pelas outras fotos e vídeos do mesmo projeto, na ordem da página.
+   O slider de antes/depois e a revista folheável ficam de fora. */
+let lightboxItens = [];
 let lightboxIndice = 0;
 
-function abrirLightbox(img) {
-  lightboxFotos = [...document.querySelectorAll('#exp-imagens .exp-linha > img')].map(i => i.src);
-  lightboxIndice = Math.max(0, lightboxFotos.indexOf(img.src));
+function arquivoDe(el) {
+  return el.tagName === 'VIDEO' ? el.dataset.arquivo : el.src;
+}
+
+function abrirLightbox(el) {
+  lightboxItens = [...document.querySelectorAll('#exp-imagens .exp-linha > img, #exp-imagens .exp-linha > video')].map(arquivoDe);
+  lightboxIndice = Math.max(0, lightboxItens.indexOf(arquivoDe(el)));
   const lb = document.getElementById('lightbox');
-  lb.classList.toggle('unica', lightboxFotos.length < 2);
+  lb.classList.toggle('unica', lightboxItens.length < 2);
   mostrarLightbox();
   lb.classList.add('ativo');
 }
 
 function mostrarLightbox() {
-  document.getElementById('lightbox-img').src = lightboxFotos[lightboxIndice];
-  document.getElementById('lightbox-contador').textContent = `${lightboxIndice + 1} / ${lightboxFotos.length}`;
-  // já baixa a próxima para a troca ser instantânea
-  const prox = lightboxFotos[(lightboxIndice + 1) % lightboxFotos.length];
-  if (prox) new Image().src = prox;
+  const arquivo = lightboxItens[lightboxIndice];
+  const img = document.getElementById('lightbox-img');
+  const video = document.getElementById('lightbox-video');
+  const eVideo = /\.mp4(\?|$)/.test(arquivo);
+  img.hidden = eVideo;
+  video.hidden = !eVideo;
+  if (eVideo) {
+    img.removeAttribute('src');
+    if (video.src !== arquivo) video.src = arquivo;
+    video.play().catch(() => {});
+  } else {
+    video.pause();
+    video.removeAttribute('src'); video.load();
+    img.src = arquivo;
+  }
+  document.getElementById('lightbox-contador').textContent = `${lightboxIndice + 1} / ${lightboxItens.length}`;
+  // já baixa a próxima foto para a troca ser instantânea
+  const prox = lightboxItens[(lightboxIndice + 1) % lightboxItens.length];
+  if (prox && !/\.mp4(\?|$)/.test(prox)) new Image().src = prox;
 }
 
 function passarLightbox(direcao) {
-  if (lightboxFotos.length < 2) return;
-  lightboxIndice = (lightboxIndice + direcao + lightboxFotos.length) % lightboxFotos.length;
+  if (lightboxItens.length < 2) return;
+  lightboxIndice = (lightboxIndice + direcao + lightboxItens.length) % lightboxItens.length;
   mostrarLightbox();
 }
 
@@ -699,6 +726,9 @@ function passarLightbox(direcao) {
 
 function fecharLightbox() {
   document.getElementById('lightbox').classList.remove('ativo');
+  const video = document.getElementById('lightbox-video');
+  video.pause();
+  video.removeAttribute('src'); video.load();
 }
 
 /* ── CURRÍCULO ──

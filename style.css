@@ -290,12 +290,15 @@ body:has(#projeto-expandido.ativa) #rodape {
   display: flex;
 }
 
-#lightbox-img {
+#lightbox-img,
+#lightbox-video {
   max-width: calc(100vw - 2 * (2vw + 72px));  /* deixa espaço para as setas dos lados */
   max-height: 90vh;
   object-fit: contain;
   cursor: default;
 }
+
+#lightbox [hidden] { display: none; }
 
 /* setas para passar as fotos ampliadas */
 .lightbox-seta {
@@ -342,7 +345,7 @@ body:has(#projeto-expandido.ativa) #rodape {
   .lightbox-seta { width: 40px; height: 40px; font-size: 30px; padding-bottom: 4px; }
   .lightbox-anterior { left: 8px; }
   .lightbox-proxima  { right: 8px; }
-  #lightbox-img { max-width: 94vw; }  /* no celular a foto ocupa a largura; as setas ficam por cima */
+  #lightbox-img, #lightbox-video { max-width: 94vw; }  /* no celular a foto ocupa a largura; as setas ficam por cima */
 }
 
 /* PROJETOS (grade estilo Pentagram) */
@@ -667,7 +670,8 @@ body:has(#projeto-expandido.ativa) #rodape {
   border-radius: 10px;
 }
 
-.exp-linha img {
+.exp-linha img,
+.exp-linha video {
   cursor: zoom-in;
 }
 
