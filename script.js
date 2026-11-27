@@ -1,3 +1,9 @@
+// links do menu usam href="#" só para serem clicáveis; não deixam o "#" aparecer no endereço
+document.addEventListener('click', e => {
+  if (e.target.closest('a[href="#"]')) e.preventDefault();
+});
+if (location.href.includes('#')) history.replaceState(null, '', location.pathname + location.search);
+
 window.addEventListener('scroll', () => {
   const nav = document.querySelector('nav');
   if (window.scrollY > 50) {
