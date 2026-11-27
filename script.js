@@ -283,7 +283,8 @@ const projetos = [
       'imagens/projetos/rebot/rebot-03.jpg',
       'imagens/projetos/rebot/rebot-04.jpg',
       'imagens/projetos/rebot/rebot-05.jpg',
-      'imagens/projetos/rebot/rebot-06.jpg'
+      'imagens/projetos/rebot/rebot-06.jpg',
+      { src: 'imagens/projetos/rebot/rebot-poster-parede.jpg', largura: 50 }
     ]
   },
   {
