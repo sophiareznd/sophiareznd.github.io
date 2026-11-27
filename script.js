@@ -277,14 +277,12 @@ const projetos = [
     descricao: 'Rebot é um robô de combate da categoria beetleweight, projetado pelo meu irmão. Sua arma é uma lâmina giratória posicionada sob o robô, pensada para enfrentar os vertical spinners, que dominam a categoria. O nome é um trocadilho criado por ele: "rebote" + "robot", em referência ao bote da cobra, que é como o robô ataca.<br><br>A partir dessa ideia, criei a identidade visual do projeto em torno de energia acumulada e liberada de uma vez. O símbolo é uma víbora enrolada em círculo, de mandíbula aberta, pronta para o bote. O círculo faz referência ao movimento rotativo da arma, e o desenho em facetas dá ao animal um aspecto mecânico. Escolhi uma tipografia larga e angular, que lembra peças usinadas.<br><br>A paleta é enxuta, com preto, branco e um vermelho de sinalização. O preto e branco dá o tom de etiqueta de risco, e o vermelho funciona como placa de alerta. Sem ruído e sem linhas extras, só um predador feito para girar.<br><br>Quer saber mais sobre o robô? Acesse o blog dele: <a href="https://rebot.spinup.fail" target="_blank" style="color:#0e1ae8;text-decoration:none;">rebot.spinup.fail</a>',
     descricao_en: 'Rebot is a beetleweight combat robot designed by my brother. Its weapon is a spinning blade mounted underneath the robot, built to take on the vertical spinners that dominate the category. The name is a pun he came up with: "rebote" (Portuguese for a snake\'s strike) + "robot", a nod to the way the robot attacks, like a striking snake.<br><br>From that idea, I built the project\'s visual identity around energy that is stored up and released all at once. The symbol is a viper coiled into a circle, jaws open, ready to strike. The circle refers to the weapon\'s rotating motion, and the faceted drawing gives the animal a mechanical look. I chose a wide, angular typeface reminiscent of machined parts.<br><br>The palette is minimal: black, white and a signal red. The black and white set the tone of a hazard label, and the red works like a warning sign. No noise and no extra lines, just a predator built to spin.<br><br>Want to know more about the robot? Visit its blog: <a href="https://rebot.spinup.fail" target="_blank" style="color:#0e1ae8;text-decoration:none;">rebot.spinup.fail</a>',
     imagens: [
-      'imagens/projetos/rebot/rebot-01.jpg',
-      'imagens/projetos/rebot/rebot-02.jpg',
-      'imagens/projetos/rebot/video-paleta.mp4',
-      'imagens/projetos/rebot/rebot-03.jpg',
-      'imagens/projetos/rebot/rebot-04.jpg',
-      'imagens/projetos/rebot/rebot-05.jpg',
-      'imagens/projetos/rebot/rebot-06.jpg',
-      { src: 'imagens/projetos/rebot/rebot-poster-parede.jpg', largura: 50 }
+      'imagens/projetos/rebot/rebot-01.jpg',                         // logo
+      { src: 'imagens/projetos/rebot/rebot-02.jpg', largura: 60 },     // símbolo
+      { src: 'imagens/projetos/rebot/video-paleta.mp4', largura: 50 }, // cores
+      { par: ['imagens/projetos/rebot/rebot-04.jpg', 'imagens/projetos/rebot/rebot-05.jpg', 'imagens/projetos/rebot/rebot-03.jpg'], largura: 100 },  // caneca, chaveiro, notebook
+      { src: 'imagens/projetos/rebot/rebot-poster-parede.jpg', largura: 50 },  // pôster
+      { src: 'imagens/projetos/rebot/rebot-06.jpg', largura: 40 }      // adesivos
     ]
   },
   {
