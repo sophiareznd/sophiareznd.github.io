@@ -896,6 +896,7 @@ function atualizarBotaoModo() {
   const escuro = document.body.classList.contains('escuro');
   const rotulo = escuro ? (idioma === 'en' ? 'Light mode' : 'Modo claro') : (idioma === 'en' ? 'Dark mode' : 'Modo noturno');
   const btn = document.getElementById('modo-btn');
+  if (!btn) return;  // botão escondido por enquanto
   btn.setAttribute('aria-label', rotulo);
   btn.title = rotulo;
 }
