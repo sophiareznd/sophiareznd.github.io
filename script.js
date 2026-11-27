@@ -883,6 +883,23 @@ function navegarProjeto(direcao) {
   exibirProjetoAtual();
 }
 
+/* ── MODO NOTURNO ──
+   O botão ao lado do ENG liga/desliga a classe .escuro no body (cores no fim do style.css).
+   A escolha fica salva neste navegador (localStorage) para as próximas visitas. */
+function alternarModo() {
+  const escuro = document.body.classList.toggle('escuro');
+  try { localStorage.setItem('modo', escuro ? 'escuro' : 'claro'); } catch (e) {}
+  atualizarBotaoModo();
+}
+
+function atualizarBotaoModo() {
+  const escuro = document.body.classList.contains('escuro');
+  const rotulo = escuro ? (idioma === 'en' ? 'Light mode' : 'Modo claro') : (idioma === 'en' ? 'Dark mode' : 'Modo noturno');
+  const btn = document.getElementById('modo-btn');
+  btn.setAttribute('aria-label', rotulo);
+  btn.title = rotulo;
+}
+
 let idioma = 'pt';
 
 function alternarIdioma() {
@@ -898,7 +915,10 @@ function alternarIdioma() {
   if (document.getElementById('projeto-expandido').classList.contains('ativa')) {
     renderizarExpandido();
   }
+  atualizarBotaoModo();
 }
+
+atualizarBotaoModo();
 
 // abre a página do endereço atual (ou do ?p= que o 404.html mandou)
 (function () {

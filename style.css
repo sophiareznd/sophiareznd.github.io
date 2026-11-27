@@ -66,6 +66,34 @@ nav ul li a.ativa {
   text-decoration: underline;
 }
 
+/* botão do modo noturno (lua no claro, sol no escuro), na cor do menu */
+.modo-btn {
+  display: flex;
+  align-items: center;
+  padding: 0;
+  border: none;
+  background: none;
+  cursor: pointer;
+  color: var(--nav-cor);
+}
+
+.modo-btn svg {
+  width: 17px;
+  height: 17px;
+  fill: currentColor;
+  stroke: currentColor;
+  stroke-width: 2;
+  stroke-linecap: round;
+  transition: transform 0.3s ease;
+}
+
+.modo-btn:hover svg { transform: rotate(-20deg); }
+.modo-btn .icone-lua path { stroke: none; }
+.modo-btn .icone-sol path { fill: none; }
+.modo-btn .icone-sol,
+body.escuro .modo-btn .icone-lua { display: none; }
+body.escuro .modo-btn .icone-sol { display: block; }
+
 
 /* PÁGINAS */
 .pagina {
@@ -1203,3 +1231,33 @@ body:has(#projeto-expandido.ativa) #rodape {
     font-size: 13px;
   }
 }
+
+/* ── MODO NOTURNO ──
+   Só troca fundos e textos; as imagens e vídeos dos projetos ficam como são. */
+body.escuro { background-color: #141414; color: #dcdcdc; }
+body.escuro .cv-btn { color: #dcdcdc; }
+body.escuro .card-titulo,
+body.escuro .exp-titulo,
+body.escuro .exp-olho,
+body.escuro .testador-amostra,
+body.escuro .testador-controles b,
+body.escuro .exp-meta dd,
+body.escuro .exp-nav-link { color: #ececec; }
+body.escuro .card-desc,
+body.escuro .exp-meta dt,
+body.escuro .testador-controles label,
+body.escuro .revista-dica { color: #9a9a9a; }
+body.escuro .exp-subtitulo,
+body.escuro .exp-desc { color: #d0d0d0; }
+body.escuro .exp-tags li { color: #c4c4c4; background: #2a2a2a; }
+body.escuro .exp-about-btn { color: #ececec; background: rgba(48, 48, 48, 0.9); }
+body.escuro .exp-about-btn:hover { background: rgba(70, 70, 70, 0.95); }
+body.escuro .testador-campo input { color: #ececec; background: #1d1d1d; }
+body.escuro .exp-meta,
+body.escuro .exp-nav { border-top-color: #333; }
+body.escuro .exp-revista { background: #141414; }
+body.escuro .exp-nav-link:hover,
+body.escuro .cv-btn:hover { color: #FF568D; }
+
+/* links com cor própria na descrição (ex.: o azul do site do Sinapse) ficam mais claros no escuro */
+body.escuro .exp-desc a { color: #8f96ff !important; }
