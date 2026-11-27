@@ -795,6 +795,12 @@ body:has(#projeto-expandido.ativa) #rodape {
   .testador-controles { gap: 20px; }
 }
 
+/* faixa de cores do Emilie: tira fininha com cantos retos */
+.exp-linha video[src*="faixa-fina"],
+.exp-linha video[data-src*="faixa-fina"] {
+  border-radius: 0;
+}
+
 .exp-olho {
   max-width: 75%;
   margin: 24px 0;
