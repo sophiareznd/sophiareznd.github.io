@@ -279,7 +279,7 @@ const projetos = [
     imagens: [
       'imagens/projetos/rebot/video-faixa-logo.mp4',                 // faixa 1920x330 com o logo animado
       'imagens/projetos/rebot/rebot-posters-parede.jpg',             // pôsteres
-      'imagens/projetos/rebot/rebot-02.jpg',                         // símbolo
+      { src: 'imagens/projetos/rebot/rebot-02.jpg', largura: 50 },     // símbolo
       { src: 'imagens/projetos/rebot/video-paleta.mp4', largura: 65 }, // cores
       { par: ['imagens/projetos/rebot/rebot-04.jpg', 'imagens/projetos/rebot/rebot-05.jpg', 'imagens/projetos/rebot/rebot-03.jpg'], largura: 100 },  // caneca, chaveiro, notebook
       'imagens/projetos/rebot/rebot-01.jpg',                         // logo
