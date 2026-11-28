@@ -278,11 +278,11 @@ const projetos = [
     descricao_en: 'Rebot is a beetleweight combat robot designed by my brother. Its weapon is a spinning blade mounted underneath the robot, built to take on the vertical spinners that dominate the category. The name is a pun he came up with: "rebote" (Portuguese for a snake\'s strike) + "robot", a nod to the way the robot attacks, like a striking snake.<br><br>From that idea, I built the project\'s visual identity around energy that is stored up and released all at once. The symbol is a viper coiled into a circle, jaws open, ready to strike. The circle refers to the weapon\'s rotating motion, and the faceted drawing gives the animal a mechanical look. I chose a wide, angular typeface reminiscent of machined parts.<br><br>The palette is minimal: black, white and a signal red. The black and white set the tone of a hazard label, and the red works like a warning sign. No noise and no extra lines, just a predator built to spin.<br><br>Want to know more about the robot? Visit its blog: <a href="https://rebot.spinup.fail" target="_blank" style="color:#0e1ae8;text-decoration:none;">rebot.spinup.fail</a>',
     imagens: [
       'imagens/projetos/rebot/video-faixa-logo.mp4',                 // faixa 1920x330 com o logo animado
+      'imagens/projetos/rebot/rebot-posters-parede.jpg',             // pôsteres
       'imagens/projetos/rebot/rebot-02.jpg',                         // símbolo
-      { src: 'imagens/projetos/rebot/rebot-01.jpg', largura: 50 },     // logo
       { src: 'imagens/projetos/rebot/video-paleta.mp4', largura: 65 }, // cores
       { par: ['imagens/projetos/rebot/rebot-04.jpg', 'imagens/projetos/rebot/rebot-05.jpg', 'imagens/projetos/rebot/rebot-03.jpg'], largura: 100 },  // caneca, chaveiro, notebook
-      'imagens/projetos/rebot/rebot-posters-parede.jpg',  // pôsteres
+      'imagens/projetos/rebot/rebot-01.jpg',                         // logo
       { src: 'imagens/projetos/rebot/rebot-06.jpg', largura: 40 }      // adesivos
     ]
   },
